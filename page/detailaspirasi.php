@@ -1,14 +1,10 @@
 <?php
 
-require("../func/autoload.php");
+require("../func/user/autoload.php");
 
 $auth->checkLogin();
 
-if(!isset($_GET["id"])) {
-    $result = 0;
-} else {
-    $result = $aspirasi->selectDetailAspirasi($_GET["id"]);
-}
+$result = !isset($_GET["id"]) ? 0 : $aspirasi->selectDetailAspirasi($_GET["id"]);
 
 ?>
 

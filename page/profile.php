@@ -1,15 +1,12 @@
 <?php
 
-require("../func/autoload.php");
+require("../func/user/autoload.php");
 
 $auth->checkLogin();
 
-$result = 0;
-if(isset($_POST["edit"])) { $result = $profile->updateProfile($_COOKIE["sessionasp"], $_POST["nama"], $_POST["kelas"], $_POST["fakultas"]); }
+$result = isset($_POST["edit"]) ? $profile->updateProfile($_COOKIE["sessionasp"], $_POST["nama"], $_POST["kelas"], $_POST["fakultas"]) : 0;
 
 $dataProfile = $profile->selectProfile($_COOKIE["sessionasp"]);
-
-
 
 ?>
 

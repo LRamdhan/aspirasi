@@ -1,12 +1,10 @@
 <?php
 
-require("../func/autoload.php");
+require("../func/user/autoload.php");
 
 $auth->checkLogout();
 
-if(isset($_POST["submit"])) {   
-    $result = $auth->login($_POST["email"], $_POST["password"]);
-}
+if(isset($_POST["submit"])) { $result = $auth->login($_POST["email"], $_POST["password"]); }
 
 ?>
 

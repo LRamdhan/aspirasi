@@ -1,13 +1,10 @@
 <?php
 
-require("../func/autoload.php");
+require("../func/user/autoload.php");
 
 $auth->checkLogin();
 
-$result = 1;
-if(isset($_POST["tambah"])) {
-    $result = $aspirasi->insertAspirasi($_POST["judul"], $_POST["deskripsi"]);
-}
+$result = isset($_POST["tambah"]) ? $aspirasi->insertAspirasi($_POST["judul"], $_POST["deskripsi"]) : 1;
 
 ?>
 
