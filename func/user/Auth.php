@@ -20,7 +20,7 @@ class Auth extends Database {
         if($affect === 1) {
             setcookie("sessionasp", $email, time() + 60 * 60 * 24, "/");
             $path = Database::$path;
-            header("Location: $path" . "page/dashboard.php"); 
+            header("Location: $path" . "page/user/dashboard.php"); 
             die;
         }
         return $affect;
@@ -36,7 +36,7 @@ class Auth extends Database {
         if(password_verify($password, $result["password"])) {
             setcookie("sessionasp", $email, time() + 60 * 60 * 24, "/");
             $path = Database::$path;
-            header("Location: $path" . "page/dashboard.php"); 
+            header("Location: $path" . "page/user/dashboard.php"); 
             die;
         }
         return 0;
@@ -49,7 +49,7 @@ class Auth extends Database {
             if(mysqli_fetch_assoc($query)) { return; }
         }
         $path = Database::$path;
-        header("Location: $path". "page/login.php"); 
+        header("Location: $path". "page/user/login.php"); 
         die;
     }
     
@@ -68,7 +68,7 @@ class Auth extends Database {
     public function logout() {
         setcookie("sessionasp", "", time() - 3600, "/");
         $path = Database::$path;
-        header("Location: $path". "page/login.php"); 
+        header("Location: $path". "page/user/login.php"); 
         die;
     }
 }

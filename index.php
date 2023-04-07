@@ -20,9 +20,9 @@ $aspirasi = $aspirasi->select($_GET["page"], $_GET["direction"]);
     <link rel="stylesheet" href="css/navbar.css">
 </head>
 <body>
-    <?php require("page/navbar.php"); ?>
+    <?php require("page/user/navbar.php"); ?>
     <h1>semua aspirasi</h1>
-    <a href="page/tambahaspirasi.php">tambah aspirasi</a>
+    <a href="page/user/tambahaspirasi.php">tambah aspirasi</a>
     <form action="" data-direction="<?= $_GET["direction"] ?>">
         <input type="radio" name="direction" id="asc" value="asc" se>
         <label for="asc">asc</label>
@@ -44,12 +44,12 @@ $aspirasi = $aspirasi->select($_GET["page"], $_GET["direction"]);
                     <td><?= $item["judul"] ?></td>
                     <td><?= $item["tanggal"] ?></td>
                     <td><?= $item["status"] ?></td>
-                    <td><a href="page/detailaspirasi.php?id=<?= $item["id"] ?>">detail</a></td>
+                    <td><a href="page/user/detailaspirasi.php?id=<?= $item["id"] ?>">detail</a></td>
                 </tr>
             <?php endforeach; ?>
         </tbody>
     </table>
-    <table border="1" borde-spacing="0">
+    <table border="1" border-spacing="0">
         <tr>
             <td><a href="?page=<?= $_GET["page"] - 1; ?>&direction=<?= $_GET["direction"] ?>">&laquo;</a></td>
             <td>&nbsp;</td>

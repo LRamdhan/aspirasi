@@ -1,6 +1,6 @@
 <?php
 
-require("../func/user/autoload.php");
+require("../../func/user/autoload.php");
 
 $auth->checkLogout();
 

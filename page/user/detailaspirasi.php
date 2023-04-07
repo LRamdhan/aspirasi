@@ -1,6 +1,6 @@
 <?php
 
-require("../func/user/autoload.php");
+require("../../func/user/autoload.php");
 
 $auth->checkLogin();
 
@@ -15,7 +15,7 @@ $result = !isset($_GET["id"]) ? 0 : $aspirasi->selectDetailAspirasi($_GET["id"])
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>tambah aspirasi</title>
-    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../../css/navbar.css">
 </head>
 <body>
     <?php require("navbar.php"); ?>
@@ -40,7 +40,7 @@ $result = !isset($_GET["id"]) ? 0 : $aspirasi->selectDetailAspirasi($_GET["id"])
     <?php if(strlen($result["gambar"]) === 0) : ?>
         <p>tidak memiliki gambar</p>
     <?php else : ?>
-        <img width="300" src="../img/<?= $result["gambar"] ?>" alt="">
+        <img width="300" src="../../img/<?= $result["gambar"] ?>" alt="">
     <?php endif; ?>
     <br>
     <h3>pesan</h3>
