@@ -1,6 +1,6 @@
 <?php
 
-require("func/user/autoload.php");
+require("func/autoload.php");
 
 $auth->checkLogin();
 
@@ -49,7 +49,7 @@ $aspirasi = $aspirasi->select($_GET["page"], $_GET["direction"]);
             <?php endforeach; ?>
         </tbody>
     </table>
-    <table border="1" borde-spacing="0">
+    <table border="1" border-spacing="0">
         <tr>
             <td><a href="?page=<?= $_GET["page"] - 1; ?>&direction=<?= $_GET["direction"] ?>">&laquo;</a></td>
             <td>&nbsp;</td>
