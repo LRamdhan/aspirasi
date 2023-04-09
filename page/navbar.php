@@ -4,9 +4,9 @@
 
 <nav>
   <ul>
-    <li><a href="<?= Database::$path ?>page/user/dashboard.php">dashboard</a></li>
+    <li><a href="<?= Database::$path ?>page/dashboard.php">dashboard</a></li>
     <li><a href="<?= Database::$path ?>">semua aspirasi</a></li>
-    <li><a href="<?= Database::$path ?>page/user/profile.php">profile</a></li>
+    <li><a href="<?= Database::$path ?>page/profile.php">profile</a></li>
     <li><a href="?logout=1">logout</a></li>
   </ul>
 </nav>

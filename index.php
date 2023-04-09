@@ -1,6 +1,6 @@
 <?php
 
-require("func/user/autoload.php");
+require("func/autoload.php");
 
 $auth->checkLogin();
 
@@ -20,9 +20,9 @@ $aspirasi = $aspirasi->select($_GET["page"], $_GET["direction"]);
     <link rel="stylesheet" href="css/navbar.css">
 </head>
 <body>
-    <?php require("page/user/navbar.php"); ?>
+    <?php require("page/navbar.php"); ?>
     <h1>semua aspirasi</h1>
-    <a href="page/user/tambahaspirasi.php">tambah aspirasi</a>
+    <a href="page/tambahaspirasi.php">tambah aspirasi</a>
     <form action="" data-direction="<?= $_GET["direction"] ?>">
         <input type="radio" name="direction" id="asc" value="asc" se>
         <label for="asc">asc</label>
@@ -44,7 +44,7 @@ $aspirasi = $aspirasi->select($_GET["page"], $_GET["direction"]);
                     <td><?= $item["judul"] ?></td>
                     <td><?= $item["tanggal"] ?></td>
                     <td><?= $item["status"] ?></td>
-                    <td><a href="page/user/detailaspirasi.php?id=<?= $item["id"] ?>">detail</a></td>
+                    <td><a href="page/detailaspirasi.php?id=<?= $item["id"] ?>">detail</a></td>
                 </tr>
             <?php endforeach; ?>
         </tbody>

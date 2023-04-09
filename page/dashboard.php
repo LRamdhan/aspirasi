@@ -1,6 +1,6 @@
 <?php
 
-require("../..//func/user/autoload.php");
+require("../func/autoload.php");
 
 $auth->checkLogin();
 
@@ -15,7 +15,7 @@ $dataDashboard = $profile->dashboard($_COOKIE["sessionasp"]);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>dashboard</title>
-    <link rel="stylesheet" href="../../css/navbar.css">
+    <link rel="stylesheet" href="../css/navbar.css">
 </head>
 <body>
     <?php require("navbar.php"); ?>

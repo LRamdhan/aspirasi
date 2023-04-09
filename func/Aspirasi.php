@@ -21,7 +21,7 @@ class Aspirasi extends Database {
         if($image["error"] === 0) { 
             $split = explode(".", $image["name"]);
             $imageName = uniqid() . "." . end($split);
-            move_uploaded_file($image["tmp_name"], "../../img/" . $imageName);
+            move_uploaded_file($image["tmp_name"], "../img/" . $imageName);
         }
         $email = $_COOKIE["sessionasp"];
         mysqli_query($this->connect, "INSERT INTO aspirasi(email, judul, deskripsi, gambar) VALUES ('$email', '$judul', '$deskripsi', '$imageName')");
