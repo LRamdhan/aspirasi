@@ -4,9 +4,8 @@ require("../func/autoload.php");
 
 $auth->checkLogin();
 
-if(isset($_GET["logout"])) {
-    $auth->logout();
-}
+$data = $aspirasi->selectJumlah();
+$admin = $aspirasi->selectAdmin($_COOKIE["aspadm"]);
 
 ?>
 
@@ -22,5 +21,10 @@ if(isset($_GET["logout"])) {
 <body>
     <?php require("navbar.php"); ?>
     <h1>dashboard</h1>
+    <br><br>
+    <h1>selamat datang <?= $admin["username"] ?></h1>
+    <br>
+    <h3><?= $data["terkirim"] ?> aspirasi terkirim</h3>
+    <h3><?= $data["diproses"] ?> aspirasi diproses</h3>
 </body>
 </html>
