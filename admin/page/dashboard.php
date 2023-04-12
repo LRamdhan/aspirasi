@@ -26,5 +26,6 @@ $admin = $aspirasi->selectAdmin($_COOKIE["aspadm"]);
     <br>
     <h3><?= $data["terkirim"] ?> aspirasi terkirim</h3>
     <h3><?= $data["diproses"] ?> aspirasi diproses</h3>
+    <h3><?= $data["all"] ?> aspirasi saat ini</h3>
 </body>
 </html>

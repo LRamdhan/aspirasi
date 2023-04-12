@@ -23,17 +23,17 @@ $dataProfile = $profile->selectProfile($_COOKIE["sessionasp"]);
     <?php require("navbar.php"); ?>
     <h1>profile</h1>
     <br><br>
-    <?php if(isset($_POST["edit"]) && $result > 0) : 
-        echo "<p style=\"color: green;\">data berhasil diubah</p>";
-    endif;?>
-    <input type="checkbox" id="edit">
-    <label for="edit">edit</label>
-    <button class="tbl-ubah" type="submit" name="edit" value="" id="tbl-ubah" form="form">ubah</button>
+    <?php if(isset($_GET["editpass"]) && $_GET["editpass"] == 1) { echo '<p style="color: green;">password berhasil diubah</p><br>'; } ?>
     <form action="" method="post" id="form">
         <br>
         <label for="nama">Nama</label>
         <br>
         <input type="text" name="nama" id="nama" value="<?= $dataProfile["nama"] ?>" disabled>
+        <br>
+        <br>
+        <label for="npm">npm</label>
+        <br>
+        <input type="text" name="npm" id="npm" value="<?= $dataProfile["npm"] ?>" disabled>
         <br><br>
         <label for="kelas">Kelas</label>
         <br>
@@ -43,17 +43,11 @@ $dataProfile = $profile->selectProfile($_COOKIE["sessionasp"]);
         <br>
         <input type="text" name="fakultas" id="fakultas" value="<?= $dataProfile["fakultas"] ?>" disabled>
         <br><br>
+        <label for="fakultas">password</label>
+        <br>
+        <input type="password" name="fakultas" id="fakultas" value="jfisejaofeioa" disabled>
+        <br><br>
     </form>
-    <script>
-        const [form] = document.getElementsByTagName('form');
-        const input = Array.from(form.getElementsByTagName('input'));
-        const edit = document.getElementById('edit');
-        const tblUbah = document.getElementById('tbl-ubah');
-        edit.addEventListener('input', event => {
-            tblUbah.style.display = event.target.checked ? "inline" : "none";
-            input.forEach(el => el.disabled = !event.target.checked);
-            input[0].focus();
-        });
-    </script>
+    <a href="editpassword.php">ubah password</a>
 </body>
 </html>

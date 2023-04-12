@@ -2,10 +2,10 @@
 
 class Aspirasi extends Database {
     public function select($page, $direction = "desc") {
-        $email = $_COOKIE["sessionasp"];
-        $q = "SELECT id, judul, tanggal, status FROM aspirasi WHERE email = '$email' order by waktu $direction LIMIT 5";
+        $npm = $_COOKIE["sessionasp"];
+        $q = "SELECT id, judul, tanggal, status FROM aspirasi WHERE npm = '$npm' order by waktu $direction LIMIT 10";
         if($page > 1) { 
-            $page *= 5;
+            $page *= 10;
             $q .= ", $page"; 
         }
         $query = mysqli_query($this->connect, $q);
@@ -23,8 +23,8 @@ class Aspirasi extends Database {
             $imageName = uniqid() . "." . end($split);
             move_uploaded_file($image["tmp_name"], "../img/" . $imageName);
         }
-        $email = $_COOKIE["sessionasp"];
-        mysqli_query($this->connect, "INSERT INTO aspirasi(email, judul, deskripsi, gambar) VALUES ('$email', '$judul', '$deskripsi', '$imageName')");
+        $npm = $_COOKIE["sessionasp"];
+        mysqli_query($this->connect, "INSERT INTO aspirasi(npm, judul, deskripsi, gambar) VALUES ('$npm', '$judul', '$deskripsi', '$imageName')");
         if(mysqli_affected_rows($this->connect) !== 1) { return 0; }
         $path = Database::$path;
         header("Location: $path"); 

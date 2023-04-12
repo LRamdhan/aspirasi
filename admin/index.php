@@ -65,9 +65,9 @@ $data = $aspirasi->selectAspirasi($_POST["page"], $_POST["order"], $_POST["statu
             <?php endforeach; ?>
         </tbody>
     </table>
-    <span><button type="submit" name="page" form="filter" value="<?= $_POST["page"] - 5 ?>">&laquo; previous</button></span>
+    <span><button type="submit" name="page" form="filter" value="<?= $_POST["page"] - 10 ?>">&laquo; previous</button></span>
     <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-    <span><button type="submit" name="page" form="filter" value="<?= $_POST["page"] + 5 ?>">next &raquo;</button></span>
+    <span><button type="submit" name="page" form="filter" value="<?= $_POST["page"] + 10 ?>">next &raquo;</button></span>
     <script>
         const form = document.getElementById("filter");
         const radio = Array.from(form.querySelectorAll("input[type=radio]"));

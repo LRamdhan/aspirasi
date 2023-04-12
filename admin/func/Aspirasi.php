@@ -4,7 +4,7 @@ class Aspirasi extends Database {
     public function selectAspirasi($skip = 0, $order = "asc", $status = null) {
         $where = $status ? "AND status = '$status'" : "";
         $order = !$order ? "asc" : $order;
-        $sql = "SELECT aspirasi.id, aspirasi.judul, user.fakultas, aspirasi.tanggal, aspirasi.status FROM aspirasi, user WHERE aspirasi.email = user.email $where ORDER BY waktu $order LIMIT $skip, 5";
+        $sql = "SELECT aspirasi.id, aspirasi.judul, mahasiswa.fakultas, aspirasi.tanggal, aspirasi.status FROM aspirasi, mahasiswa WHERE aspirasi.npm = mahasiswa.npm $where ORDER BY waktu $order LIMIT $skip, 10";
         $query = mysqli_query($this->connect, $sql);
         if(!$query) { return ["error" => true]; }
         $data = [];
@@ -13,7 +13,7 @@ class Aspirasi extends Database {
     }
 
     public function selectDetailAspirasi($id) {
-        $sql = "SELECT  user.nama, user.kelas, user.fakultas, aspirasi.judul, aspirasi.deskripsi, aspirasi.tanggal, aspirasi.status, aspirasi.gambar, aspirasi.pesan FROM aspirasi, user WHERE aspirasi.id = $id AND user.email = aspirasi.email;
+        $sql = "SELECT  mahasiswa.nama, mahasiswa.kelas, mahasiswa.fakultas, aspirasi.judul, aspirasi.deskripsi, aspirasi.tanggal, aspirasi.status, aspirasi.gambar, aspirasi.pesan FROM aspirasi, mahasiswa WHERE aspirasi.id = $id AND mahasiswa.npm = aspirasi.npm;
         ";
         $query = mysqli_query($this->connect, $sql);
         if(!$query) { return []; }
@@ -33,7 +33,10 @@ class Aspirasi extends Database {
         $sql = "SELECT count(judul) as 'diproses' FROM aspirasi WHERE status = 'diproses'";
         $query = mysqli_query($this->connect, $sql);
         $diproses = mysqli_fetch_assoc($query);
-        return ["terkirim" => $terkirim["terkirim"], "diproses" => $diproses["diproses"]];
+        $sql = "SELECT count(judul) as 'all' FROM aspirasi";
+        $query = mysqli_query($this->connect, $sql);
+        $all = mysqli_fetch_assoc($query);
+        return ["terkirim" => $terkirim["terkirim"], "diproses" => $diproses["diproses"], "all" => $all["all"]];
     }
 
     public function selectAdmin($username) {

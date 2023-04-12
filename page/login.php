@@ -4,7 +4,7 @@ require("../func/autoload.php");
 
 $auth->checkLogout();
 
-if(isset($_POST["submit"])) { $result = $auth->login($_POST["email"], $_POST["password"]); }
+if(isset($_POST["submit"])) { $result = $auth->login($_POST["npm"], $_POST["password"]); }
 
 ?>
 
@@ -22,14 +22,13 @@ if(isset($_POST["submit"])) { $result = $auth->login($_POST["email"], $_POST["pa
         echo "<p style=\"color: red;\">email atau password salah</p>";
     endif;?>
     <form action="" method="post">
-        <label for="email">email</label>
-        <input type="email" id="email" name="email">
+        <label for="npm">npm</label>
+        <input type="text" id="npm" name="npm">
         <br>
         <label for="password">password</label>
         <input type="password" id="password" name="password">
         <br>
         <button type="submit" name="submit">login</button>
-        <p>belum punya akun? <a href="registrasi.php">registrasi</a></p>
     </form>
 </body>
 </html>
