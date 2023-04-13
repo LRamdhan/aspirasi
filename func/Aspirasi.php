@@ -20,14 +20,14 @@ class Aspirasi extends Database {
         $imageName = "";
         if($image["error"] === 0) { 
             $split = explode(".", $image["name"]);
-            $imageName = uniqid() . "." . end($split);
-            move_uploaded_file($image["tmp_name"], "../img/" . $imageName);
+            $imageName = "aspirasi_" . uniqid() . "." . end($split);
+            move_uploaded_file($image["tmp_name"], "../assets/img/" . $imageName);
         }
         $npm = $_COOKIE["sessionasp"];
         mysqli_query($this->connect, "INSERT INTO aspirasi(npm, judul, deskripsi, gambar) VALUES ('$npm', '$judul', '$deskripsi', '$imageName')");
         if(mysqli_affected_rows($this->connect) !== 1) { return 0; }
         $path = Database::$path;
-        header("Location: $path"); 
+        header("Location: $path" . "page/aspirasiterkirim.php"); 
         die;
     }
 

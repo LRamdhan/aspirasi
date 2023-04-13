@@ -13,14 +13,14 @@ class Auth extends Database {
         return 0;
     }
 
-    public function checkLogin() {
+    public function checkLogin($uri = "page/login.php") {
         if(isset($_COOKIE["sessionasp"])) {
             $cookie = $_COOKIE["sessionasp"];
             $query = mysqli_query($this->connect, "SELECT npm FROM mahasiswa WHERE npm = '$cookie'");
             if(mysqli_fetch_assoc($query)) { return; }
         }
         $path = Database::$path;
-        header("Location: $path". "page/login.php"); 
+        header("Location: $path". $uri); 
         die;
     }
     

@@ -1,7 +1,7 @@
 <?php
 
 class Aspirasi extends Database {
-    public function selectAspirasi($skip = 0, $order = "asc", $status = null) {
+    public function selectAspirasi($skip = 0, $order = "desc", $status = null) {
         $where = $status ? "AND status = '$status'" : "";
         $order = !$order ? "asc" : $order;
         $sql = "SELECT aspirasi.id, aspirasi.judul, mahasiswa.fakultas, aspirasi.tanggal, aspirasi.status FROM aspirasi, mahasiswa WHERE aspirasi.npm = mahasiswa.npm $where ORDER BY waktu $order LIMIT $skip, 10";

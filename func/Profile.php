@@ -6,11 +6,6 @@ class Profile extends Database {
         return mysqli_fetch_assoc($query);
     }
 
-    public function updateProfile($npm, $nama, $kelas, $fakultas) {
-        $query = mysqli_query($this->connect, "UPDATE mahasiswa SET nama = '$nama', kelas = '$kelas', fakultas = '$fakultas' WHERE npm = '$npm'");
-        return mysqli_affected_rows($this->connect);
-    }
-
     public function dashboard($npm) {
         $sql = "SELECT nama FROM mahasiswa WHERE npm = '$npm'";
         $query = mysqli_query($this->connect, $sql);
@@ -18,7 +13,7 @@ class Profile extends Database {
         $sql = "SELECT count(judul) AS jumlah FROM aspirasi WHERE npm = '$npm'";
         $query = mysqli_query($this->connect, $sql);
         $jumlah = mysqli_fetch_assoc($query)["jumlah"];
-        $sql = "SELECT id, judul, tanggal FROM aspirasi WHERE npm = '$npm' ORDER BY waktu DESC LIMIT 1";
+        $sql = "SELECT id, judul, tanggal, status FROM aspirasi WHERE npm = '$npm' ORDER BY waktu DESC LIMIT 1";
         $query = mysqli_query($this->connect, $sql);
         $recent = mysqli_fetch_assoc($query);
         return ["nama" => $nama, "jumlah" => $jumlah, "recent" => $recent];

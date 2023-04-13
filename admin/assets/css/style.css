@@ -1,0 +1,218 @@
+@import url("https://fonts.googleapis.com/css2?family=IM+Fell+Great+Primer&family=Montserrat&family=Oswald:wght@400;600&family=Roboto+Slab&display=swap");
+
+:root {
+  --primary-color: #81bcdc;
+}
+
+/* font-family: 'IM Fell Great Primer', serif;
+font-family: 'Montserrat', sans-serif;
+font-family: 'Oswald', sans-serif;
+font-family: 'Roboto Slab', serif; */
+
+* {
+  font-family: "Roboto Slab", serif;
+}
+
+/* index */
+nav {
+  background-color: var(--primary-color);
+}
+
+.login {
+  margin-left: 5px;
+  text-decoration: none;
+  color: #000;
+}
+
+.step-wizard ul li span {
+  font-family: "Oswald", sans-serif;
+}
+
+.step-wizard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.step-wizard-list {
+  bottom: 10px;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0, 1);
+  list-style-type: none;
+  border-radius: 10px;
+  display: flex;
+  padding: 20px 10px;
+  position: relative;
+  z-index: 10px;
+}
+
+.step-wizard-item {
+  padding: 0px;
+  flex-basis: 0;
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  min-width: 170px;
+  position: relative;
+}
+
+.step-wizard-item + .step-wizard-item:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 19px;
+  background: #000;
+  width: 100%;
+  height: 2px;
+  transform: translateX(-50%);
+  z-index: -10;
+}
+
+.progress-count {
+  bottom: 20px;
+  height: 50px;
+  width: 50px;
+  background: #d9d9d9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-weight: 600;
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+}
+
+.progress-label {
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+.progress-desc {
+  margin: 20px;
+  font-size: 15px;
+  margin-top: 10px;
+}
+
+.laporan {
+  background-color: var(--primary-color);
+}
+
+.laporan h1 {
+  font-size: 30px;
+}
+
+.laporan h2 {
+  font-size: 50px;
+  font-weight: 600;
+}
+
+.contact-list {
+  list-style-type: none;
+}
+
+.button {
+  font-size: 20px;
+  font-weight: 600;
+  padding: 18px;
+  padding-right: 70px;
+  padding-left: 70px;
+  border: none;
+  background-color: #d9d9d9;
+}
+
+.footer {
+  background-color: var(--primary-color);
+}
+
+/* index end */
+
+/* about */
+.about {
+  margin-bottom: 200px;
+}
+.about-text {
+  font-size: 20px;
+  background-color: #d9d9d9;
+  padding: 50px;
+  border-radius: 10px;
+}
+/* about end */
+
+/* login */
+.login-page {
+  background-color: var(--primary-color);
+  border-radius: 20px;
+  padding: 10px;
+  margin: 50px;
+}
+
+.button-login {
+  width: 200px;
+  background-color: #d6e4e5;
+  border: none;
+  border-radius: 5px;
+  padding: 2px;
+}
+/* login end */
+
+/* dashboard */
+.dashboard {
+  margin-bottom: 320px;
+}
+.button-dashboard {
+  border: none;
+  background-color: #d6e4e5;
+  border-radius: 10px;
+}
+
+#navbarNav ul li a {
+  color: #000;
+  text-decoration: none;
+  padding-right: 30px;
+}
+
+.navbar-list {
+  padding-right: 500px;
+}
+/* dashboard end */
+
+/* tulis aspirasi */
+.tulis-aspirasi-page button {
+  background-color: #659dbb5e;
+  border-radius: 10px;
+}
+
+#kirim button {
+  width: 100%;
+}
+/* tulis aspirasi end */
+
+/* aspirasi terkirim */
+.aspirasi-terkirim p {
+  height: 200px;
+  padding: 70px;
+  font-size: 20px;
+  background-color: #d9d9d9;
+  margin-top: 100px;
+  margin-bottom: 300px;
+  border-radius: 10px;
+}
+/* aspirasi terkirim end */
+
+/* profile */
+.profile-form {
+  background-color: #d9d9d9;
+  padding: 10px;
+}
+/* profile end */
+
+/* semua aspirasi */
+/* .semua-aspirasi table {
+  margin-bottom: 230px;
+} */
+/* semua aspirasi end */
