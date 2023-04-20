@@ -6,21 +6,20 @@ class Auth extends Database {
         if(!$result = mysqli_fetch_assoc($query)) { return 0; }
         if(password_verify($password, $result["password"])) {
             setcookie("sessionasp", $npm, time() + 60 * 60 * 24, "/");
-            $path = Database::$path;
-            header("Location: $path" . "page/dashboard.php"); 
+            return 1;
             die;
         }
         return 0;
     }
 
-    public function checkLogin($uri = "page/login.php") {
+    public function checkLogin() {
         if(isset($_COOKIE["sessionasp"])) {
             $cookie = $_COOKIE["sessionasp"];
             $query = mysqli_query($this->connect, "SELECT npm FROM mahasiswa WHERE npm = '$cookie'");
             if(mysqli_fetch_assoc($query)) { return; }
         }
         $path = Database::$path;
-        header("Location: $path". $uri); 
+        header("Location: $path"); 
         die;
     }
     
@@ -28,18 +27,15 @@ class Auth extends Database {
         if(isset($_COOKIE["sessionasp"])) {
             $cookie = $_COOKIE["sessionasp"];
             $query = mysqli_query($this->connect, "SELECT npm FROM mahasiswa WHERE npm = '$cookie'");
-            $path = Database::$path;
-            if(mysqli_fetch_assoc($query)) {
-                header("Location: $path"); 
-                die;
-            }
+            if(mysqli_fetch_assoc($query)) { return 0; }
         }
+        return 1;
     }
 
     public function logout() {
         setcookie("sessionasp", "", time() - 3600, "/");
         $path = Database::$path;
-        header("Location: $path". "page/login.php"); 
+        header("Location: $path"); 
         die;
     }
 }

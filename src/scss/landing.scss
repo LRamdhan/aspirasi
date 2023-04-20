@@ -1,0 +1,32 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.break {
+  display: none;
+}
+
+.arrange {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  & > * {
+    padding-bottom: 60px;
+  }
+}
+
+.box {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media(min-width: 500px) {
+  .break {
+    display: block;
+  }
+}

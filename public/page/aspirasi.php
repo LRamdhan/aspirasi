@@ -1,8 +1,8 @@
 <?php
 
-require("func/autoload.php");
+require("../func/autoload.php");
 
-$auth->checkLogin("page/landing.php");
+$auth->checkLogin();
 
 if((!isset($_GET["page"]) || $_GET["page"] < 1)) { $_GET["page"] = 1; }
 if(!isset($_GET["direction"])) { $_GET["direction"] = "desc"; }
@@ -17,7 +17,7 @@ $aspirasi = $aspirasi->select($_GET["page"], $_GET["direction"]);
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="../assets/css/style.css" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -27,7 +27,7 @@ $aspirasi = $aspirasi->select($_GET["page"], $_GET["direction"]);
   </head>
   <body>
     <!-- navbar -->
-    <?php require("page/navbar.php"); ?>
+    <?php require("navbar.php"); ?>
     <!-- navbar end -->
 
     <!-- detail aspirasi -->
@@ -108,7 +108,7 @@ $aspirasi = $aspirasi->select($_GET["page"], $_GET["direction"]);
     <!-- detail aspirasi end -->
 
     <!-- contact -->
-    <?php require("page/contact.php") ?>
+    <?php require("contact.php") ?>
     <!-- contact end -->
 
     <script>
