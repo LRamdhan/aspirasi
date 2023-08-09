@@ -2,8 +2,8 @@
 
 class Database {
     protected $connect;
-    public static $path = "/latihan/aspirasi/";
-    // public static $path = "/";
+    // public static $path = "/latihan/aspirasi/";
+    public static $path = "/";
 
     public function __construct() {
         $this->connect = mysqli_connect("localhost", "root", "", "aspirasi");

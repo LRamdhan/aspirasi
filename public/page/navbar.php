@@ -20,7 +20,7 @@
       <div class="navbar-list mx-auto">
         <ul class="navbar-nav">
           <li class="nav-item me-2 fs-5">
-            <a href="<?= Database::$path ?>">SEMUA ASPIRASI</a>
+            <a href="<?= Database::$path ?>page/aspirasi.php">SEMUA ASPIRASI</a>
           </li>
           <li class="nav-item fs-5">
             <a href="<?= Database::$path ?>page/profile.php">PROFILE</a>
